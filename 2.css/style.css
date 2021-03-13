@@ -1,0 +1,105 @@
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing:border-box;
+}
+body{
+    background:url("https://umad.com/img/2015/8/multicolor-wallpaper-background-1662-1753-hd-wallpapers.jpg") repeat left top;
+}
+
+#logo{
+    display:block;
+    height:200px;
+    width:300px;
+    position:relative;
+    top:0px;
+}
+#face{
+    position:relative;
+    top:30px;
+}
+#bus{
+    margin:20px 20px 20px 0px;
+}
+header{
+    margin:0px auto;
+}
+/*Barra de navegacion*/
+header > nav > ul{
+    padding:0.5% 10% 0.5% 30%; /*espacio dentro de su caja(configurado por medio de las manecias del relog)*/
+    display:block;
+    margin:0px auto; /*Separacion fuera de su caja*/
+    background:rgb(39,39,49);
+    height:0%;
+    width:100%;
+    float:right;
+}
+
+header > nav > ul li{ /* <= contiene todas la listas de la tabla de navegacion*/
+    list-style:none; /* <= elimina los puntos que tiene la lista*/
+    display:table-cell; /* <= coloca verticalmente la tabla de navegacion */
+    margin:100px;  /* <= margen fuera de su caja*/
+    padding:10px; /* <= margen dentro de su misma caja*/
+    height:49px;
+    width:149px;
+    border:1px solid rgb(39,39,49);
+    background:rgb(39,39,49);
+}
+/*Color*/
+.uno:hover{background-color:rgb(26,201,142);}
+.dos:hover{background:rgb(230,71,89);}
+.tres:hover{background:rgb(159,134,254);}
+.cuatro:hover{background:rgb(229,215,54);}
+.cinco:hover{background:rgb(29,156,218);}
+
+header > nav > ul > li > a{ /* <= Contiene directamente los enlaces de la barra de navegacion*/
+    color:#000;
+    display:block;/* <= convirte en bloque para poder modificar si ancho largo etc*/
+    text-decoration:none; /* <= elimina el subrayado de los enlaces*/
+    text-align:center;
+    font-family: 'Indie Flower', cursive;
+    font-size:20px;
+    font-weight:700;
+}
+
+/*Barra lateral*/
+nav.lateral{ /* <= contiene el menu lateral*/
+    padding:0% 2% 2% 2%;
+    background:rgb(39,39,49);
+    height: 100%;
+    width:20%; /*ancho*/
+    float: left;/*coloca ala izquierda*/
+    list-style:none;
+    position:fixed;
+}
+nav > div{
+    margin:20px;
+}
+nav.lateral > div > ul li{/*Contiene la lista*/
+    list-style:none;/*elimina las biñetas de la lista*/
+    display:block;
+    border:1px solid rgb(39,39,49);
+    margin:5px;
+}
+nav.lateral > div > ul > li a{/*contiene Directamente los enlaces dentro de la barra lateral*/
+    display:block; /*Convertido de linea a bloque*/
+    text-decoration:none;/*quita la decoracion del texto en este caso las lineas*/
+    font-family: 'Indie Flower', cursive;/*tipografia*/
+    font-size:20px;/*tamaño*/
+    font-weight:500;/*negritas*/
+    color:#000;
+}
+
+.contenedor{
+        background-image:-webkit-linear-gradient(rgba(37,40,49,0.8),rgba(41,45,55,0.8));
+        width:80%;
+        position:absolute;
+        top:50%;
+        right:0px;
+        display:list-item;
+        margin:0px auto;
+}
+
+.ord{
+    display:inline;
+}
