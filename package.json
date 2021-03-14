@@ -1,0 +1,16 @@
+{
+  "name": "library-anime",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./config/pug_render.config.js",
+  "dependencies": {
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -L --watch ./development ./config/pug_render.config.js -e .pug"
+  },
+  "author": "",
+  "license": "ISC"
+}
