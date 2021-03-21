@@ -1,8 +1,56 @@
-nav.row.expanded
-  div.columns.large-3
-    p Anime's Library
-  div.columns.large-3.large-centered.callout
-    div.button-group.align-right
-      a(href="#").button.rounded.secondary Series
-      a(href="#").button.rounded.secondary Mangas
-      a(href="#").button.rounded.secondary Movies
+mixin select_page (name_page='index')
+  nav.row.expanded.padding-vertical-1
+  
+    div.columns.flex-container.padding-horizontal-1
+      a(href="#").flex-container 
+        img(src="./img/fate_logo.png", style="width: 3em;")
+
+    div.columns.shrink.show-for-large.padding-0
+      ul.menu.align-right
+        case name_page
+          when 'chronology'
+            li
+              span Chronology
+            li
+              a(href="") Media
+            li
+              a(href="") Characters
+            li
+              a(href="") Story
+          when 'media'
+            li
+              a(href="") Chronology
+            li
+              span Media
+            li
+              a(href="") Characters
+            li
+              a(href="") Story
+          when 'characters'
+            li
+              a(href="") Chronology
+            li
+              a(href="") Media
+            li
+              span Characters
+            li
+              a(href="") Story
+          when 'story'
+            li
+              a(href="") Chronology
+            li
+              a(href="") Media
+            li
+              a(href="") Characters
+            li
+              span Story
+          default
+            li
+              a(href="") Chronology
+            li
+              a(href="") Media
+            li
+              a(href="") Characters
+            li
+              a(href="") Story
+
