@@ -1,15 +1,16 @@
 {
-  "name": "library-anime",
+  "name": "page-anime",
   "version": "1.0.0",
   "description": "",
   "main": "./config/pug_render.config.js",
   "dependencies": {
+    "foundation-sites": "^6.6.3",
+    "jquery": "^3.6.0",
     "pug": "^3.0.2"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -L --watch ./development ./config/pug_render.config.js -e .pug"
+    "start": "nodemon -L --watch ./development ./config/pug_render.config.js --ignore ./development/styles/ -e .pug"
   },
   "author": "",
   "license": "ISC"
