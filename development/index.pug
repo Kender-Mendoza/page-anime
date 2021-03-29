@@ -2,8 +2,8 @@ extends ./modules/_layout.pug
 include ./modules/_nav_bar.pug
 
 block content 
+  +select_page
   header.row.expanded
-    +select_page
     div.columns.padding-horizontal-0
       video(src="https://v.pinimg.com/videos/mc/720p/e7/ec/d1/e7ecd101269141258be520fb55bb1401.mp4" 
             type="video/mp4" 
@@ -11,4 +11,9 @@ block content
             muted 
             loop 
             width="100%")
+    div.height-100.width-100.position-absolute
+      div.row.align-middle.align-center.height-100
+        img(src="./img/fate_logo.png").width-25.height-25
+      
+           
            

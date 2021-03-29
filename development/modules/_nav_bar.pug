@@ -1,10 +1,9 @@
 mixin select_page (name_page='index')
-  nav.row.expanded.padding-vertical-1
+  nav.row.expanded.padding-vertical-1.position-fixed-top
   
     div.columns.flex-container.padding-horizontal-1
       a(href="#").flex-container 
         img(src="./img/fate_logo.png", style="width: 3em;")
-
     div.columns.shrink.show-for-large.padding-0
       ul.menu.align-right
         case name_page
