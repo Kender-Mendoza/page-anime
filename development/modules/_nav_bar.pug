@@ -1,56 +1,33 @@
-mixin select_page (name_page='index')
+mixin selectLinkPage(namePage, pageSmall=true)
+    - let unSelectClass = "button clear alert" 
+    - let selectClass = pageSmall ? "button rounded shadow bordered alert" : unSelectClass  
+
+    - let chronology = (namePage == 'chronology') ? true : false
+    - let characters = (namePage == 'characters') ? true : false
+    - let story = (namePage == 'story') ? true : false
+    - let media = (namePage == 'media')
+
+    - let smallClass = "columns small-12 show-for-small-only padding-top-1 row"
+    - let largeClass = "columns large-4 shrink show-for-large padding-0"
+
+    div(class=pageSmall ? smallClass : largeClass)
+        div.columns.shrink
+          ul.menu
+            li
+              a(href=chronology ? "#" : "http://pinterest.com", class=chronology ? selectClass : unSelectClass, style=(!pageSmall && chronology) ? "color: #67251a" : "") Chronology
+            li
+              a(href=characters ? "#" : "http://pinterest.com", class=characters ? selectClass : unSelectClass, style=(!pageSmall && characters) ? "color: #67251a" : "") Media
+            li
+              a(href=story ? "#" : "http://pinterest.com", class=story ? selectClass : unSelectClass, style=(!pageSmall && story) ? "color: #67251a" : "") Characters
+            li
+              a(href=media ? "#" : "http://pinterest.com", class=media ? selectClass : unSelectClass, style=(!pageSmall && media) ? "color: #67251a" : "") Story
+
+mixin navigationBar (namePage)
   nav.row.expanded.padding-vertical-1
-  
-    div.columns.flex-container.padding-horizontal-1
-      a(href="#").flex-container 
-        img(src="./img/fate_logo.png", style="width: 3em;")
-
-    div.columns.shrink.show-for-large.padding-0
-      ul.menu.align-right
-        case name_page
-          when 'chronology'
-            li
-              span Chronology
-            li
-              a(href="") Media
-            li
-              a(href="") Characters
-            li
-              a(href="") Story
-          when 'media'
-            li
-              a(href="") Chronology
-            li
-              span Media
-            li
-              a(href="") Characters
-            li
-              a(href="") Story
-          when 'characters'
-            li
-              a(href="") Chronology
-            li
-              a(href="") Media
-            li
-              span Characters
-            li
-              a(href="") Story
-          when 'story'
-            li
-              a(href="") Chronology
-            li
-              a(href="") Media
-            li
-              a(href="") Characters
-            li
-              span Story
-          default
-            li
-              a(href="") Chronology
-            li
-              a(href="") Media
-            li
-              a(href="") Characters
-            li
-              a(href="") Story
-
+    div.columns.small-12.medium-8.large-8
+      div.flex-container.align-center
+        a(href="#").flex-container 
+          img(src="./img/fate_logo.png", style="width: 3em;")
+    
+    +selectLinkPage(namePage, false)
+    +selectLinkPage(namePage)
