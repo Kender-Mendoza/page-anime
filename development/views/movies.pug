@@ -1,0 +1,8 @@
+extends ../modules/_layout.pug
+include ../modules/_nav_bar.pug
+
+block content 
+  +navigationBar({chronology: "../index.html",
+                  series: "series.html",
+                  movies: "#",
+                  mangas: "mangas.html"})

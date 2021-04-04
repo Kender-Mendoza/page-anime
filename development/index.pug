@@ -1,5 +1,17 @@
 extends ./modules/_layout.pug
 include ./modules/_nav_bar.pug
 
+block append styles
+   link(rel="stylesheet", href="styles/styles.css")
+
 block content 
-    +navigationBar('chronology')
+  +navigationBar({chronology: "#",
+                  series: "views/series.html",
+                  movies: "views/movies.html",
+                  mangas: "views/mangas.html"}, 
+                  './img/fate_logo.png')
+
+block append scripts 
+  script(src="./node_modules/jquery/dist/jquery.min.js") 
+  script(src="./node_modules/jquery/dist/jquery.slim.min.js") 
+  script(src="./node_modules/foundation-sites/dist/js/foundation.min.js")

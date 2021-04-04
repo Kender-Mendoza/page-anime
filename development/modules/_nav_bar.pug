@@ -1,33 +1,41 @@
-mixin selectLinkPage(namePage, pageSmall=true)
-    - let unSelectClass = "button clear alert" 
-    - let selectClass = pageSmall ? "button rounded shadow bordered alert" : unSelectClass  
+mixin selectLinkPage({chronology, series, movies, mangas}, isSmall = true)
+  - let unSelectionClass = ["button", "clear", "alert"] 
+  - let selectionClass = isSmall ? ["button", "rounded", "shadow", "bordered", "alert"] : unSelectionClass
 
-    - let chronology = (namePage == 'chronology') ? true : false
-    - let characters = (namePage == 'characters') ? true : false
-    - let story = (namePage == 'story') ? true : false
-    - let media = (namePage == 'media')
+  - let chronologyIsActive = (chronology == '#') ? true : false
+  - let seriesIsActive = (series == '#') ? true : false
+  - let moviesIsActive = (movies == '#') ? true : false
+  - let mangasIsActive = (mangas == '#')
 
-    - let smallClass = "columns small-12 show-for-small-only padding-top-1 row"
-    - let largeClass = "columns large-4 shrink show-for-large padding-0"
+  - let smallClass = ["columns", "small-12", "show-for-small-only", "padding-top-1", "row"]
+  - let largeClass = ["columns", "large-4", "shrink", "show-for-large", "padding-0"]
 
-    div(class=pageSmall ? smallClass : largeClass)
-        div.columns.shrink
-          ul.menu
-            li
-              a(href=chronology ? "#" : "http://pinterest.com", class=chronology ? selectClass : unSelectClass, style=(!pageSmall && chronology) ? "color: #67251a" : "") Chronology
-            li
-              a(href=characters ? "#" : "http://pinterest.com", class=characters ? selectClass : unSelectClass, style=(!pageSmall && characters) ? "color: #67251a" : "") Media
-            li
-              a(href=story ? "#" : "http://pinterest.com", class=story ? selectClass : unSelectClass, style=(!pageSmall && story) ? "color: #67251a" : "") Characters
-            li
-              a(href=media ? "#" : "http://pinterest.com", class=media ? selectClass : unSelectClass, style=(!pageSmall && media) ? "color: #67251a" : "") Story
+  div(class=isSmall ? smallClass : largeClass)
+    div.columns.shrink
+      ul.menu
+        li
+          a(href=chronology, 
+            class=chronologyIsActive ? selectionClass : unSelectionClass, 
+            style=(!isSmall && chronologyIsActive) ? {color: "#67251a"} : {}) Chronology
+        li
+          a(href=series, 
+            class=seriesIsActive ? selectionClass : unSelectionClass, 
+            style=(!isSmall && seriesIsActive) ? {color: "#67251a"} : {}) Series
+        li
+          a(href=movies, 
+            class=moviesIsActive ? selectionClass : unSelectionClass, 
+            style=(!isSmall && moviesIsActive) ? {color: "#67251a"} : {}) Movies
+        li
+          a(href=mangas, 
+            class=mangasIsActive ? selectionClass : unSelectionClass, 
+            style=(!isSmall && mangasIsActive) ? {color: "#67251a"} : {}) Mangas
 
-mixin navigationBar (namePage)
+mixin navigationBar (pagesPath, imgPath="../img/fate_logo.png")
   nav.row.expanded.padding-vertical-1
     div.columns.small-12.medium-8.large-8
       div.flex-container.align-center
         a(href="#").flex-container 
-          img(src="./img/fate_logo.png", style="width: 3em;")
+          img(src=imgPath, style={width: "3em"})
     
-    +selectLinkPage(namePage, false)
-    +selectLinkPage(namePage)
+    +selectLinkPage(pagesPath, false)
+    +selectLinkPage(pagesPath)

@@ -1,15 +1,18 @@
 doctype html
 html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Anime's library
-        link(rel="stylesheet", href="styles/styles.css")
-    //This class is only for test
-    body(style="background:black")
-        block content
-        
-        script(src="./node_modules/jquery/dist/jquery.min.js") 
-        script(src="./node_modules/jquery/dist/jquery.slim.min.js") 
-        script(src="./node_modules/foundation-sites/dist/js/foundation.min.js")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Fate
+    block styles
+      link(rel="stylesheet", href="../styles/styles.css")
+
+  //This class is only for test
+  body(style={background: "black"})
+    block content
+
+    block scripts
+      script(src="../node_modules/jquery/dist/jquery.min.js") 
+      script(src="../node_modules/jquery/dist/jquery.slim.min.js") 
+      script(src="../node_modules/foundation-sites/dist/js/foundation.min.js")
