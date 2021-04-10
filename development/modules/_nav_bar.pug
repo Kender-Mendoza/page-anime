@@ -29,7 +29,7 @@ mixin selectLinkPage({chronology, series, movies, mangas}, isSmall = true)
         style=(!isSmall && mangasIsActive) ? {color: "#67251a"} : {}) Mangas
 
 mixin navigationBar (pagesPath, imgPath="../img/fate_logo.png")
-  nav.row.expanded.small-up-1.large-up-2.padding-vertical-1
+  nav.row.expanded.small-up-1.large-up-2.padding-vertical-1.position-fixed-top
     div.column.row
       div.column.small-12.large-1.padding-0.margin-horizontal-1
         a(href="#").flex-container.align-center
