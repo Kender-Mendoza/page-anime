@@ -1,8 +1,39 @@
-nav.row.expanded
-  div.columns.large-3
-    p Anime's Library
-  div.columns.large-3.large-centered.callout
-    div.button-group.align-right
-      a(href="#").button.rounded.secondary Series
-      a(href="#").button.rounded.secondary Mangas
-      a(href="#").button.rounded.secondary Movies
+mixin selectLinkPage({chronology, series, movies, mangas}, isSmall = true)
+  - let unSelectionClass = ["button", "clear", "alert"] 
+  - let selectionClass = isSmall ? ["button", "rounded", "shadow", "alert"] : unSelectionClass
+
+  - let chronologyIsActive = (chronology == '#') ? true : false
+  - let seriesIsActive = (series == '#') ? true : false
+  - let moviesIsActive = (movies == '#') ? true : false
+  - let mangasIsActive = (mangas == '#') ? true : false
+
+  - let smallClass = ["column", "menu", "align-center", "hide-for-large", "padding-top-1"]
+  - let largeClass = ["column", "menu", "align-right", "show-for-large", "padding-0"]
+
+  ul(class=isSmall ? smallClass : largeClass)
+    li
+      a(href=chronology, 
+        class=chronologyIsActive ? selectionClass : unSelectionClass, 
+        style=(!isSmall && chronologyIsActive) ? {color: "#67251a"} : {}) Chronology
+    li
+      a(href=series, 
+        class=seriesIsActive ? selectionClass : unSelectionClass, 
+        style=(!isSmall && seriesIsActive) ? {color: "#67251a"} : {}) Series
+    li
+      a(href=movies, 
+        class=moviesIsActive ? selectionClass : unSelectionClass, 
+        style=(!isSmall && moviesIsActive) ? {color: "#67251a"} : {}) Movies
+    li
+      a(href=mangas, 
+        class=mangasIsActive ? selectionClass : unSelectionClass, 
+        style=(!isSmall && mangasIsActive) ? {color: "#67251a"} : {}) Mangas
+
+mixin navigationBar (pagesPath, imgPath="../img/fate_logo.png")
+  nav.row.expanded.small-up-1.large-up-2.padding-vertical-1
+    div.column.row
+      div.column.small-12.large-1.padding-0.margin-horizontal-1
+        a(href="#").flex-container.align-center
+          img(src=imgPath, style={height: "38.30px"}).display-inline-block
+    
+    +selectLinkPage(pagesPath, false)
+    +selectLinkPage(pagesPath)
